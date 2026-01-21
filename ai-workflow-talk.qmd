@@ -35,58 +35,35 @@ execute:
 *What is the equilibrium response for economics job market candidates?*
 :::
 
-## A few thoughts {.spaced-bullets}
+## A few thoughts
 
 - The average quality (and expectations) of a JMP will be **higher every year**
-
 - Expectations for **more complex analyses** will increase
-
 - Bad writing will likely become a **very bad signal**
-
 - Boring/generic writing will signal **overreliance on AI**
-
 - **Interpersonal skills** will become more critical
 
 . . .
 
-<br>
-
 **Today's focus:** Building an AI-augmented research infrastructure
 
-## Finding the Balance
+## Finding the Balance {.smaller}
 
-**1. Learn the fundamentals**
+**1. Learn the fundamentals** — You can't evaluate code you don't understand. AI will confidently give you wrong answers—you need to catch them. Think of AI as a fast RA who occasionally hallucinates.
 
-- You can't evaluate code you don't understand
-- AI will confidently give you wrong answers—you need to catch them
-- Think of AI as a fast RA who occasionally hallucinates
+**2. But don't fall behind** — Your peers *are* using these tools. The productivity gap compounds quickly. "I prefer the old way" is not a competitive strategy.
 
-**2. But don't fall behind**
+**3. The old system was imperfect** — Research errors happened before AI—and were caught late or not at all. Better workflows + AI review can catch errors earlier.
 
-- Your peers *are* using these tools
-- The productivity gap compounds quickly
-- "I prefer the old way" is not a competitive strategy
+. . .
 
-**3. The old system was imperfect**
-
-- Research errors happened before AI—and were caught late or not at all
-- Better workflows + AI review can catch errors earlier
+The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
 
 ## The old system wasn't a gold standard {.smaller}
 
-**Case 1: Reinhart & Rogoff (2010)**
+**Case 1: Reinhart & Rogoff (2010)** — An Excel formula didn't include 5 rows of data. Paper claimed high debt causes -0.1% growth; corrected: +2.2% growth. Used to justify global austerity. Found by a grad student, 3 years later.
 
-- **The error:** An Excel formula didn't include 5 rows of data (Australia, Austria, Belgium, Canada, Denmark)
-- **The impact:** Paper claimed high debt causes -0.1% growth. Corrected: +2.2% growth. Used to justify global austerity policies.
-- **Found by:** Thomas Herndon, a grad student, 3 years later
-
-<br>
-
-**Case 2: Deschênes & Greenstone (2007 AER)**
-
-- **The error:** Coding errors and missing/incorrect weather data in climate-agriculture analysis
-- **The impact:** Paper claimed climate change would *increase* ag profits. Corrected results showed the opposite.
-- **Found by:** Fisher et al., 5 years later via replication
+**Case 2: Deschênes & Greenstone (2007 AER)** — Coding errors and missing weather data in climate-agriculture analysis. Paper claimed climate change would *increase* ag profits; corrected results showed the opposite. Found 5 years later via replication.
 
 ---
 
@@ -142,10 +119,10 @@ project-folder/
 
 . . .
 
-```{.bash .light-code}
+```{.bash}
 git diff analysis.R
 ```
-```{.diff .light-code}
+```{.diff}
 - model <- lm(y ~ x1 + x2, data = df)
 + model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
 ```
@@ -163,12 +140,7 @@ No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
 
 **What:** Terminal-based, agentic coding assistant
 
-**Best for:**
-
-- R and data analysis workflows
-- File operations & project setup
-- Autonomous multi-step tasks
-- Git integration
+**Best for:** R and data analysis workflows, file operations & project setup, autonomous multi-step tasks, Git integration
 
 *Runs from command line, can execute code and modify files directly.*
 :::
@@ -178,12 +150,7 @@ No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
 
 **What:** AI-powered code editor (VS Code fork)
 
-**Best for:**
-
-- Iterative code editing
-- Larger software projects
-- Inline suggestions while typing
-- Tab completion on steroids
+**Best for:** Iterative code editing, larger software projects, inline suggestions while typing, tab completion on steroids
 
 *Full IDE experience with AI built in.*
 :::
@@ -203,19 +170,15 @@ Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
 
 *One integrated system: Code changes automatically flow through to your paper.*
 
-## Cautions & Pitfalls {.smaller}
+## Cautions & Pitfalls
 
-1. **AI can hallucinate packages and functions**
-   - It will confidently suggest code using libraries that don't exist. Always run and verify.
+1. **AI can hallucinate packages and functions** — It will confidently suggest code using libraries that don't exist. Always run and verify.
 
-2. **Don't let AI do your economic thinking**
-   - It's a tool, not a co-author. Identification, intuition, and interpretation are yours.
+2. **Don't let AI do your economic thinking** — It's a tool, not a co-author. Identification, intuition, and interpretation are yours.
 
-3. **Always test AI-generated code**
-   - Run it. Check edge cases. Verify results make sense.
+3. **Always test AI-generated code** — Run it. Check edge cases. Verify results make sense.
 
-4. **Be thoughtful about sensitive data**
-   - Know what data you're sending to AI services. Check your IRB and data use agreements.
+4. **Be thoughtful about sensitive data** — Know what data you're sending to AI services. Check your IRB and data use agreements.
 
 ## More Resources
 
@@ -226,24 +189,12 @@ Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
 | [Claude Code Docs](https://docs.anthropic.com) | Official documentation for Claude's coding assistant |
 | [Cursor](https://cursor.com) | AI-first code editor built on VS Code |
 
----
-
-## {background-color="#ba0c2f"}
-
-::: {.center-slide}
-[Up Next]{.subtitle-text}
-
-[Live Demo]{.title-text}
-
-Seeing Claude Code in action with real data analysis
-:::
-
 ## Questions?
 
 :::: {.columns}
 
 ::: {.column width="60%"}
-**Gabe Sampson**
+**Gabriel Lade**
 
 C. William Swank Chair in Rural-Urban Policy
 

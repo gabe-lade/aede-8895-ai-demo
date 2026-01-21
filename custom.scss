@@ -84,18 +84,7 @@ $presentation-h3-font-size: 1.1em;
   color: $gray-dark-60;
 }
 
-// Spaced bullets for slide 3
-.spaced-bullets ul li {
-  margin-bottom: 0.8em;
-}
-
-// Remove default callout styling
-.reveal .callout {
-  border: none;
-  background: none;
-}
-
-// Code blocks - improved visibility
+// Code blocks
 .reveal pre {
   background-color: $gray-light-80;
   border-radius: 6px;
@@ -106,31 +95,9 @@ $presentation-h3-font-size: 1.1em;
   color: $gray-dark-80;
 }
 
-// Light code style for better visibility
-.reveal pre.light-code {
-  background-color: $gray-light-60;
-}
-
-.reveal pre.light-code code {
-  color: $gray-dark-80;
-}
-
-// Diff styling
-.reveal code .hljs-deletion,
-.reveal pre code .deletion {
-  color: #c41e3a;
-  background-color: rgba(196, 30, 58, 0.1);
-}
-
-.reveal code .hljs-addition,
-.reveal pre code .addition {
-  color: #2e7d32;
-  background-color: rgba(46, 125, 50, 0.1);
-}
-
-// Tables
+// Tables - slightly larger font for resources slide
 .reveal table {
-  font-size: 0.8em;
+  font-size: 0.9em;
   
   th {
     background-color: $scarlet;
@@ -162,7 +129,7 @@ $presentation-h3-font-size: 1.1em;
 
 // Smaller text for dense slides
 .smaller {
-  font-size: 0.85em;
+  font-size: 0.88em;
 }
 
 // Institution footer
@@ -176,26 +143,43 @@ $presentation-h3-font-size: 1.1em;
   color: $scarlet;
 }
 
-// Bullet points with scarlet
+// FIX: Proper bullet styling - use standard list-style instead of ::before
 .reveal ul {
-  list-style-type: none;
+  list-style-type: disc;
+  padding-left: 1.5em;
 }
 
-.reveal ul li::before {
-  content: "•";
+.reveal ul li {
+  padding-left: 0.3em;
+  margin-bottom: 0.4em;
+}
+
+.reveal ul li::marker {
   color: $scarlet;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
 }
 
 // Nested lists
-.reveal ul ul li::before {
-  content: "◦";
+.reveal ul ul {
+  list-style-type: circle;
+}
+
+// Ordered lists
+.reveal ol {
+  padding-left: 1.5em;
+}
+
+.reveal ol li {
+  padding-left: 0.3em;
+  margin-bottom: 0.5em;
 }
 
 // Questions slide image
 .reveal img {
   max-height: 400px;
+}
+
+// Slide 11 (Cautions) and 12 (Resources) - ensure readable font
+.reveal section ol li,
+.reveal section table {
+  font-size: 0.95em;
 }
