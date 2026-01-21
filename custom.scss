@@ -1,21 +1,24 @@
 /*-- scss:defaults --*/
 
-// OSU Colors
-$scarlet: #BB0000;
-$gray: #666666;
-$dark-gray: #1d1d1d;
-$light-gray: #f5f5f5;
+// Official OSU Colors from https://bux.osu.edu/color/primary-colors/
+$scarlet: #ba0c2f;
+$gray: #a7b1b7;
+$gray-dark-80: #212325;
+$gray-dark-60: #3f4443;
+$gray-dark-40: #646a6e;
+$gray-light-80: #eff1f2;
+$gray-light-60: #dfe3e5;
 
 // Theme colors
 $body-bg: #ffffff;
-$body-color: $dark-gray;
+$body-color: $gray-dark-80;
 $link-color: $scarlet;
 $selection-bg: $scarlet;
 
 // Fonts
 $font-family-sans-serif: "Source Sans Pro", Arial, sans-serif;
 $presentation-heading-font: "Source Sans Pro", Arial, sans-serif;
-$presentation-heading-color: $dark-gray;
+$presentation-heading-color: $gray-dark-80;
 $code-block-font-size: 0.7em;
 
 // Headings
@@ -25,16 +28,25 @@ $presentation-h3-font-size: 1.1em;
 
 /*-- scss:rules --*/
 
-// Title slide styling
-.reveal .slides section.title-slide {
-  h1 {
-    color: $dark-gray;
+// Title slide styling with OSU colors
+.reveal .slides section.quarto-title-block {
+  h1.title {
+    color: $scarlet;
     border-bottom: 4px solid $scarlet;
     padding-bottom: 0.3em;
   }
+  
+  .subtitle {
+    color: $gray-dark-60;
+  }
+  
+  .institute {
+    color: $scarlet;
+    font-weight: bold;
+  }
 }
 
-// Section headers (red background slides)
+// Section headers (scarlet background slides)
 .center-slide {
   display: flex;
   flex-direction: column;
@@ -65,47 +77,55 @@ $presentation-h3-font-size: 1.1em;
   display: inline-block;
 }
 
-// Callout customization
-.callout-note {
-  border-left-color: $scarlet !important;
+// Larger text utility class (for the equilibrium question)
+.larger-text {
+  font-size: 1.3em;
+  text-align: center;
+  color: $gray-dark-60;
 }
 
-.callout-important {
-  background-color: $scarlet !important;
-  border-left-color: $scarlet !important;
-  
-  .callout-title {
-    color: white !important;
-  }
-  
-  .callout-body {
-    color: white !important;
-  }
+// Spaced bullets for slide 3
+.spaced-bullets ul li {
+  margin-bottom: 0.8em;
 }
 
-.callout-tip {
-  border-left-color: $gray !important;
+// Remove default callout styling
+.reveal .callout {
+  border: none;
+  background: none;
 }
 
-// Code blocks
+// Code blocks - improved visibility
 .reveal pre {
-  background-color: $dark-gray;
+  background-color: $gray-light-80;
   border-radius: 6px;
+  border: 1px solid $gray;
 }
 
 .reveal pre code {
-  color: #f8f8f2;
+  color: $gray-dark-80;
 }
 
-// Diff styling in code blocks
-.reveal pre code .hljs-deletion {
-  color: #F14C4C;
-  background-color: rgba(241, 76, 76, 0.1);
+// Light code style for better visibility
+.reveal pre.light-code {
+  background-color: $gray-light-60;
 }
 
-.reveal pre code .hljs-addition {
-  color: #89D185;
-  background-color: rgba(137, 209, 133, 0.1);
+.reveal pre.light-code code {
+  color: $gray-dark-80;
+}
+
+// Diff styling
+.reveal code .hljs-deletion,
+.reveal pre code .deletion {
+  color: #c41e3a;
+  background-color: rgba(196, 30, 58, 0.1);
+}
+
+.reveal code .hljs-addition,
+.reveal pre code .addition {
+  color: #2e7d32;
+  background-color: rgba(46, 125, 50, 0.1);
 }
 
 // Tables
@@ -118,7 +138,7 @@ $presentation-h3-font-size: 1.1em;
   }
   
   tr:nth-child(even) {
-    background-color: $light-gray;
+    background-color: $gray-light-80;
   }
 }
 
@@ -136,7 +156,7 @@ $presentation-h3-font-size: 1.1em;
 .center-text {
   text-align: center;
   font-style: italic;
-  color: $gray;
+  color: $gray-dark-40;
   margin-top: 1em;
 }
 
@@ -145,15 +165,10 @@ $presentation-h3-font-size: 1.1em;
   font-size: 0.85em;
 }
 
-// Institution footer (if needed)
+// Institution footer
 .reveal .slide-number {
-  color: $gray;
+  color: $gray-dark-40;
   font-size: 0.6em;
-}
-
-// Mermaid diagram styling
-.mermaid {
-  text-align: center;
 }
 
 // Strong/bold in scarlet for emphasis
@@ -161,7 +176,7 @@ $presentation-h3-font-size: 1.1em;
   color: $scarlet;
 }
 
-// Bullet points
+// Bullet points with scarlet
 .reveal ul {
   list-style-type: none;
 }
@@ -180,16 +195,7 @@ $presentation-h3-font-size: 1.1em;
   content: "◦";
 }
 
-// Number badges (for the numbered sections)
-.number-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: $scarlet;
-  color: white;
-  border-radius: 50%;
-  font-weight: bold;
-  margin-right: 0.5em;
+// Questions slide image
+.reveal img {
+  max-height: 400px;
 }

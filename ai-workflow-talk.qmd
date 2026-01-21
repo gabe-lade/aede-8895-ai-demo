@@ -29,90 +29,68 @@ execute:
 
 . . .
 
-::: {.callout-note appearance="simple"}
-## 
-What is the equilibrium response for economics job market candidates?
+<br><br>
+
+::: {.larger-text}
+*What is the equilibrium response for economics job market candidates?*
 :::
 
-## A few thoughts
+## A few thoughts {.spaced-bullets}
 
 - The average quality (and expectations) of a JMP will be **higher every year**
+
 - Expectations for **more complex analyses** will increase
+
 - Bad writing will likely become a **very bad signal**
+
 - Boring/generic writing will signal **overreliance on AI**
+
 - **Interpersonal skills** will become more critical
 
 . . .
 
-::: {.callout-important}
-## Today's focus
-Building an AI-augmented research infrastructure
-:::
+<br>
 
-## Finding the Balance {.smaller}
+**Today's focus:** Building an AI-augmented research infrastructure
 
-:::: {.columns}
+## Finding the Balance
 
-::: {.column width="33%"}
-### 1. Learn the fundamentals
+**1. Learn the fundamentals**
 
 - You can't evaluate code you don't understand
 - AI will confidently give you wrong answers—you need to catch them
-- *Think of AI as a fast RA who occasionally hallucinates*
-:::
+- Think of AI as a fast RA who occasionally hallucinates
 
-::: {.column width="33%"}
-### 2. But don't fall behind
+**2. But don't fall behind**
 
 - Your peers *are* using these tools
 - The productivity gap compounds quickly
-- *"I prefer the old way" is not a competitive strategy*
-:::
+- "I prefer the old way" is not a competitive strategy
 
-::: {.column width="33%"}
-### 3. The old system was imperfect
+**3. The old system was imperfect**
 
 - Research errors happened before AI—and were caught late or not at all
 - Better workflows + AI review can catch errors earlier
-:::
-
-::::
-
-. . .
-
-::: {.callout-tip appearance="minimal"}
-The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
-:::
 
 ## The old system wasn't a gold standard {.smaller}
 
-:::: {.columns}
+**Case 1: Reinhart & Rogoff (2010)**
 
-::: {.column width="50%"}
-### Case 1: Reinhart & Rogoff (2010)
+- **The error:** An Excel formula didn't include 5 rows of data (Australia, Austria, Belgium, Canada, Denmark)
+- **The impact:** Paper claimed high debt causes -0.1% growth. Corrected: +2.2% growth. Used to justify global austerity policies.
+- **Found by:** Thomas Herndon, a grad student, 3 years later
 
-**The error:** An Excel formula didn't include 5 rows of data (Australia, Austria, Belgium, Canada, Denmark)
+<br>
 
-**The impact:** Paper claimed high debt causes -0.1% growth. Corrected: +2.2% growth. Used to justify global austerity policies.
+**Case 2: Deschênes & Greenstone (2007 AER)**
 
-**Found by:** Thomas Herndon, a grad student, 3 years later
-:::
-
-::: {.column width="50%"}
-### Case 2: Deschênes & Greenstone (2007 AER)
-
-**The error:** Coding errors and missing/incorrect weather data in climate-agriculture analysis
-
-**The impact:** Paper claimed climate change would *increase* ag profits. Corrected results showed the opposite.
-
-**Found by:** Fisher et al., 5 years later via replication
-:::
-
-::::
+- **The error:** Coding errors and missing/incorrect weather data in climate-agriculture analysis
+- **The impact:** Paper claimed climate change would *increase* ag profits. Corrected results showed the opposite.
+- **Found by:** Fisher et al., 5 years later via replication
 
 ---
 
-## {background-color="#BB0000"}
+## {background-color="#ba0c2f"}
 
 ::: {.center-slide}
 [Part II]{.subtitle-text}
@@ -122,15 +100,8 @@ The goal isn't "AI vs. no AI"—it's building systems that make research **more 
 
 ## 1. Use a cloud platform + clear folder structure
 
-:::: {.columns}
+Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone. A consistent folder structure makes AI tools more effective because they can understand your project organization. This also enables collaboration and automatic backup simultaneously.
 
-::: {.column width="55%"}
-- Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone
-- Consistent folder structure makes AI tools more effective (they understand your project)
-- Enables collaboration and backup simultaneously
-:::
-
-::: {.column width="45%"}
 ```
 project-folder/
 ├── data/
@@ -144,9 +115,6 @@ project-folder/
 ├── paper/
 └── README.md
 ```
-:::
-
-::::
 
 ## 2. Use Git/GitHub for version control
 
@@ -174,10 +142,10 @@ project-folder/
 
 . . .
 
-```bash
+```{.bash .light-code}
 git diff analysis.R
 ```
-```diff
+```{.diff .light-code}
 - model <- lm(y ~ x1 + x2, data = df)
 + model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
 ```
@@ -222,59 +190,32 @@ No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
 
 ::::
 
-. . .
-
-::: {.callout-note appearance="minimal"}
-**My workflow:** Claude Code for R/data work and project scaffolding; Cursor for larger codebases. Try both!
-:::
-
 ## 4. Write papers in Overleaf + GitHub
 
-:::: {.columns}
-
-::: {.column width="60%"}
 - **Overleaf** = collaborative LaTeX editing in the browser
 - **GitHub sync** = version control for your paper
 - AI tools can help draft, edit, and format LaTeX
 - Figures from code → paper in one pipeline
-:::
 
-::: {.column width="40%"}
-```{mermaid}
-%%| fig-width: 4
-flowchart TD
-    A[R / Python Code] --> B[Figures & Tables]
-    B --> C[GitHub Repo]
-    C --> D[Overleaf Paper]
-    
-    style A fill:#4EC9B0,color:#fff
-    style B fill:#9CDCFE,color:#1d1d1d
-    style C fill:#BB0000,color:#fff
-    style D fill:#47A141,color:#fff
-```
-:::
+**The workflow:**
 
-::::
+Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
 
-::: {.center-text}
 *One integrated system: Code changes automatically flow through to your paper.*
-:::
 
-## ⚠️ Cautions & Pitfalls
+## Cautions & Pitfalls {.smaller}
 
-::: {.incremental}
 1. **AI can hallucinate packages and functions**
    - It will confidently suggest code using libraries that don't exist. Always run and verify.
 
 2. **Don't let AI do your economic thinking**
-   - It's a tool, not a co-author. Identification, intuition, and interpretation are still yours.
+   - It's a tool, not a co-author. Identification, intuition, and interpretation are yours.
 
 3. **Always test AI-generated code**
-   - Run it. Check edge cases. Verify results make sense. "It compiles" ≠ "It's correct."
+   - Run it. Check edge cases. Verify results make sense.
 
 4. **Be thoughtful about sensitive data**
    - Know what data you're sending to AI services. Check your IRB and data use agreements.
-:::
 
 ## More Resources
 
@@ -287,7 +228,7 @@ flowchart TD
 
 ---
 
-## {background-color="#BB0000"}
+## {background-color="#ba0c2f"}
 
 ::: {.center-slide}
 [Up Next]{.subtitle-text}
@@ -297,66 +238,11 @@ flowchart TD
 Seeing Claude Code in action with real data analysis
 :::
 
-## Demo: Claude Code in action {.smaller}
-
-Let's use Claude Code to:
-
-1. Load and explore a dataset
-2. Create a visualization
-3. Commit changes to Git
-
-. . .
-
-```{r}
-#| eval: false
-#| code-line-numbers: "|1-2|4-5|7-10"
-
-# Load packages
-library(tidyverse)
-
-# Read in some data
-df <- read_csv("data/raw/example_data.csv")
-
-# Quick summary
-df |> 
-  group_by(year) |> 
-  summarize(mean_value = mean(value, na.rm = TRUE))
-```
-
-. . .
-
-::: {.callout-tip}
-## Try it yourself
-Ask Claude Code: *"Read the CSV in data/raw, summarize it by year, and create a line plot"*
-:::
-
-## Demo: A simple visualization
-
-```{r}
-#| eval: false
-#| fig-width: 10
-#| fig-height: 5
-
-ggplot(df, aes(x = year, y = value, color = group)) +
-  geom_line(linewidth = 1.2) +
-  geom_point(size = 3) +
-  labs(
-    title = "Trends Over Time",
-    x = "Year",
-    y = "Value",
-    color = "Group"
-  ) +
-  theme_minimal(base_size = 14) +
-  scale_color_brewer(palette = "Set1")
-```
-
-. . .
-
-*This code was generated by Claude Code and reviewed by me.*
-
 ## Questions?
 
-::: {.center-slide}
+:::: {.columns}
+
+::: {.column width="60%"}
 **Gabe Sampson**
 
 C. William Swank Chair in Rural-Urban Policy
@@ -365,3 +251,9 @@ Department of Agricultural, Environmental, and Development Economics
 
 The Ohio State University
 :::
+
+::: {.column width="40%"}
+![](https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ohiostatebuckeyes.com/images/2023/7/18/transparent_brutus.png){width="280"}
+:::
+
+::::
