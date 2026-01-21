@@ -14,28 +14,120 @@ format:
     transition: fade
     width: 1280
     height: 720
+    embed-resources: true
+    self-contained: true
 execute:
   echo: true
   eval: false
 ---
 
+
+<!-------------------------------------------------------------->
+<!-------------------------- PART I ---------------------------->
+<!-------------------------------------------------------------->
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part I]{.subtitle-text}
+
+[AI in Your Research]{.title-text}
+:::
+
+
+## Think, Pair, Share 
+
+For the following use cases, discuss whether you think AI is appropriate to use as part of your research:
+
+- Developing research questions/ideas
+- Coding
+- Theoretical modeling and derivations
+- Editing
+- Writing
+- Summarizing (post-publication)
+
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+
+[Let's Get More Specific!]{.title-text}
+:::
+
+
+
+## Is the following use of AI appropriate? 
+
+::: {.discussion-box}
+You use AI to **rewrite paragraphs** you've already written to make them sound more professional and improve grammar.
+:::
+
+
+
+
+## Is the following use of AI appropriate? 
+
+::: {.discussion-box}
+You ask AI to **write code** to merge two datasets and run a standard regression based on your natural language instructions. You check the code and it seems correct.
+:::
+
+
+
+## Is the following use of AI appropriate? 
+
+::: {.discussion-box}
+You ask AI to **"summarize the top 10 most influential papers on [X]."** You use this summary to develop your literature review in a paper.
+:::
+
+
+## Is the following use of AI appropriate? 
+
+::: {.discussion-box}
+You ask AI to **propose three novel research questions based on the gap in the literature between Paper X and Paper Y.**  You choose one and it becomes the basis for your paper for your dissertation.
+:::
+
+
+
+
+## Is the following use of AI appropriate? 
+
+::: {.discussion-box}
+Your advisor asks you to **review a paper** for the AJAE. You upload the paper to AI and ask it to review the paper. You use these as the primary critiques of the paper.
+:::
+
+
+
+
+<!-------------------------------------------------------------->
+<!------------------------- PART II ---------------------------->
+<!-------------------------------------------------------------->
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part II]{.subtitle-text}
+
+[My Thoughts on AI]{.title-text}
+:::
+
+
 ## Two observations and a question
 
-::: {.incremental}
 1. AI has made it **virtually costless** to write grammatically correct prose with no spelling errors.
 
 2. AI has given everyone a **(near) Ph.D.-level** coding assistant and data analyst.
-:::
+
 
 . . .
 
 <br><br>
 
 ::: {.larger-text}
-*What is the equilibrium response for economics job market candidates?*
+What is the equilibrium response for economics job market candidates?
 :::
 
-## A few thoughts
+
+## A few thoughts on the job market
 
 - The average quality (and expectations) of a JMP will be **higher every year**
 - Expectations for **more complex analyses** will increase
@@ -43,11 +135,8 @@ execute:
 - Boring/generic writing will signal **overreliance on AI**
 - **Interpersonal skills** will become more critical
 
-. . .
 
-**Today's focus:** Building an AI-augmented research infrastructure
-
-## Finding the Balance {.smaller}
+## Finding the balance 
 
 **1. Learn the fundamentals** — You can't evaluate code you don't understand. AI will confidently give you wrong answers—you need to catch them. Think of AI as a fast RA who occasionally hallucinates.
 
@@ -55,29 +144,36 @@ execute:
 
 **3. The old system was imperfect** — Research errors happened before AI—and were caught late or not at all. Better workflows + AI review can catch errors earlier.
 
-. . .
+
+## Finding the balance 
+
+<br><br>
+
+::: {.larger-text}
 
 The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
+:::
 
-## The old system wasn't a gold standard {.smaller}
 
-**Case 1: Reinhart & Rogoff (2010)** — An Excel formula didn't include 5 rows of data. Paper claimed high debt causes -0.1% growth; corrected: +2.2% growth. Used to justify global austerity. Found by a grad student, 3 years later.
 
-**Case 2: Deschênes & Greenstone (2007 AER)** — Coding errors and missing weather data in climate-agriculture analysis. Paper claimed climate change would *increase* ag profits; corrected results showed the opposite. Found 5 years later via replication.
-
----
+<!-------------------------------------------------------------->
+<!------------------------ PART III ---------------------------->
+<!-------------------------------------------------------------->
 
 ## {background-color="#ba0c2f"}
 
 ::: {.center-slide}
-[Part II]{.subtitle-text}
+[Part III]{.subtitle-text}
 
 [Building Your Stack]{.title-text}
 :::
 
+
 ## 1. Use a cloud platform + clear folder structure
 
-Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone. A consistent folder structure makes AI tools more effective because they can understand your project organization. This also enables collaboration and automatic backup simultaneously.
+Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone. 
+
+A consistent folder structure makes AI tools more effective because they can understand your project organization. 
 
 ```
 project-folder/
@@ -92,6 +188,7 @@ project-folder/
 ├── paper/
 └── README.md
 ```
+
 
 ## 2. Use Git/GitHub for version control
 
@@ -117,7 +214,11 @@ project-folder/
 
 ::::
 
-. . .
+## 2. Use Git/GitHub for version control
+
+No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
+
+<br>
 
 ```{.bash}
 git diff analysis.R
@@ -127,11 +228,13 @@ git diff analysis.R
 + model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
 ```
 
-::: {.center-text}
-No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
-:::
+<br>
 
-## 3. Use AI coding tools: Claude Code vs. Cursor {.smaller}
+Confused on how to set up Git and GitHub? Ask AI!
+
+
+## 3. Use AI coding tools: Claude Code vs. Cursor 
+<br> 
 
 :::: {.columns}
 
@@ -140,47 +243,52 @@ No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
 
 **What:** Terminal-based, agentic coding assistant
 
-**Best for:** R and data analysis workflows, file operations & project setup, autonomous multi-step tasks, Git integration
+**Best for:** Data analysis workflows, file operations & project setup, autonomous multi-step tasks, Git integration
 
-*Runs from command line, can execute code and modify files directly.*
+**Runs from command line**
 :::
 
 ::: {.column width="50%"}
 ### Cursor
 
-**What:** AI-powered code editor (VS Code fork)
+**What:** AI-powered code editor 
 
 **Best for:** Iterative code editing, larger software projects, inline suggestions while typing, tab completion on steroids
 
-*Full IDE experience with AI built in.*
 :::
 
 ::::
 
+
 ## 4. Write papers in Overleaf + GitHub
 
-- **Overleaf** = collaborative LaTeX editing in the browser
-- **GitHub sync** = version control for your paper
-- AI tools can help draft, edit, and format LaTeX
-- Figures from code → paper in one pipeline
+**Overleaf** = collaborative LaTeX editing in the browser
+
+**GitHub sync** = version control for your paper
+
+<br>
 
 **The workflow:**
 
-Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
+Code  → Figures & Tables → GitHub Repo → Overleaf Paper
 
-*One integrated system: Code changes automatically flow through to your paper.*
+<br>
 
-## Cautions & Pitfalls
+**One integrated system: Code changes automatically flow through to your paper.**
 
-1. **AI can hallucinate packages and functions** — It will confidently suggest code using libraries that don't exist. Always run and verify.
+
+## Cautions & pitfalls
+
+1. **AI will make errors and add analyses/code you didn't ask it to** — It will confidently change code that generates plausible-looking results but be completely wrong.
 
 2. **Don't let AI do your economic thinking** — It's a tool, not a co-author. Identification, intuition, and interpretation are yours.
 
 3. **Always test AI-generated code** — Run it. Check edge cases. Verify results make sense.
 
-4. **Be thoughtful about sensitive data** — Know what data you're sending to AI services. Check your IRB and data use agreements.
+4. **Be thoughtful about sensitive data** — Know what data you're sending to AI services. 
 
-## More Resources
+
+## More resources
 
 | Resource | Description |
 |----------|-------------|
@@ -189,11 +297,29 @@ Code (R/Python) → Figures & Tables → GitHub Repo → Overleaf Paper
 | [Claude Code Docs](https://docs.anthropic.com) | Official documentation for Claude's coding assistant |
 | [Cursor](https://cursor.com) | AI-first code editor built on VS Code |
 
+
+<!-------------------------------------------------------------->
+<!------------------------ PART IV ----------------------------->
+<!-------------------------------------------------------------->
+
+## {background-color="#ba0c2f"}
+
+::: {.center-slide}
+[Part IV]{.subtitle-text}
+
+[Live Demonstration]{.title-text}
+:::
+
+
+
+<!-------------------------------------------------------------->
+<!------------------------ CLOSING ----------------------------->
+<!-------------------------------------------------------------->
+
 ## Questions?
 
-:::: {.columns}
 
-::: {.column width="60%"}
+
 **Gabriel Lade**
 
 C. William Swank Chair in Rural-Urban Policy
@@ -201,10 +327,7 @@ C. William Swank Chair in Rural-Urban Policy
 Department of Agricultural, Environmental, and Development Economics
 
 The Ohio State University
-:::
 
-::: {.column width="40%"}
+
 ![](https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ohiostatebuckeyes.com/images/2023/7/18/transparent_brutus.png){width="280"}
-:::
 
-::::
