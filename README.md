@@ -1,58 +1,103 @@
-# AI Workflow Talk - Quarto Presentation
+# AEDE 8895 AI Demo
 
-## Files
+This repository contains materials for demonstrating AI-assisted workflows in research, including a Quarto presentation and an Ohio property tax analysis project.
 
-- `ai-workflow-talk.qmd` - The main presentation source file
-- `custom.scss` - Custom theme with OSU branding colors
+## Project Structure
 
-## Rendering
+```
+.
+├── ai-workflow-talk.qmd        # Quarto presentation source
+├── ai-workflow-talk.html       # Rendered presentation
+├── custom.scss                 # OSU-branded theme
+├── code/
+│   └── ohio_tax_analysis.R     # Main analysis script
+├── data/
+│   └── raw/
+│       └── 2024-sd-rates.xlsx  # School district millage rates
+├── output/
+│   ├── ohio_school_districts_floor_map.png
+│   ├── greene_county_tax_comparison.png
+│   └── top_counties_at_floor.png
+└── newsletter-data/            # Reference materials
+    └── ohio-property-tax-analysis/
+```
 
-Make sure you have Quarto installed, then:
+---
+
+## Ohio Property Tax Analysis
+
+Analysis of how Ohio's 2024 property tax reforms (HB 186) affect school districts differently based on their millage rates relative to the 20-mill floor.
+
+### Data Sources
+
+| Data | Source | File |
+|------|--------|------|
+| School district millage rates | Ohio Dept. of Education, Tax Year 2024 | `data/raw/2024-sd-rates.xlsx` |
+| Geographic boundaries | U.S. Census Bureau TIGER/Line (2023) | Downloaded via `tigris` package |
+| Property tax examples | Greene County Auditor | Hardcoded in script |
+
+### Requirements
+
+R packages:
+- `tidyverse`
+- `sf`
+- `readxl`
+- `scales`
+- `tigris`
+- `viridis`
+
+Install all dependencies:
+```r
+install.packages(c("tidyverse", "sf", "readxl", "scales", "tigris", "viridis"))
+```
+
+### Reproducing the Analysis
+
+From the project root directory:
+
+```r
+source("code/ohio_tax_analysis.R")
+```
+
+The script will:
+1. Read school district millage data from `data/raw/`
+2. Download Ohio school district boundaries from Census TIGER/Line
+3. Merge datasets using numeric keys (93.6% match rate)
+4. Generate three visualizations in `output/`:
+   - `ohio_school_districts_floor_map.png` - Statewide map of districts by floor status
+   - `greene_county_tax_comparison.png` - Property tax comparison for two homes
+   - `top_counties_at_floor.png` - Bar chart of top 10 counties by floor districts
+
+### Key Findings
+
+- **356 districts (62%)** are at the 20-mill floor
+- **217 districts (38%)** are above the floor
+- Rural/exurban districts are predominantly at the floor; urban/suburban districts are above
+
+### Policy Context
+
+- **HB 920 (1976)**: Protected homeowners from automatic tax increases during reappraisals—but only for districts above the 20-mill floor
+- **HB 186 (2024)**: Extended protections to floor districts, but eliminated automatic revenue growth they previously received
+
+---
+
+## Quarto Presentation
+
+### Rendering
 
 ```bash
 quarto render ai-workflow-talk.qmd
 ```
 
-This will generate `ai-workflow-talk.html` which you can open in any browser to present.
+### Presenting
 
-## Presenting
+- Arrow keys or spacebar to advance
+- `S` for speaker notes
+- `F` for fullscreen
+- `O` for slide overview
 
-- Use arrow keys or spacebar to advance slides
-- Press `S` for speaker notes view
-- Press `F` for fullscreen
-- Press `O` for slide overview
-- Press `B` to black out the screen
+### Theme Colors
 
-## Customization
-
-### Colors
-
-The OSU colors are defined in `custom.scss`:
+OSU colors in `custom.scss`:
 - Scarlet: `#BB0000`
 - Gray: `#666666`
-
-### Adding your demo code
-
-The demo slides near the end have placeholder R code. Replace with your actual demo content:
-
-```{r}
-#| eval: true  # Change to true to run the code
-#| echo: true  # Shows the code
-
-# Your demo code here
-```
-
-### Live code execution
-
-If you want code to actually run during the presentation, change `eval: false` to `eval: true` in the YAML header or individual code chunks.
-
-## Git integration
-
-This is now plain text! To track changes:
-
-```bash
-git add ai-workflow-talk.qmd custom.scss
-git commit -m "Update presentation slides"
-```
-
-Now your students can see exactly what changed between versions.
