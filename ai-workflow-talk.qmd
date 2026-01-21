@@ -1,0 +1,367 @@
+---
+title: "Incorporating AI into your Workflow"
+subtitle: "A Practical Guide for Economists"
+author: "AEDE 8895"
+institute: "The Ohio State University"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    preview-links: auto
+    code-fold: false
+    code-overflow: wrap
+    highlight-style: github
+    transition: fade
+    width: 1280
+    height: 720
+execute:
+  echo: true
+  eval: false
+---
+
+## Two observations and a question
+
+::: {.incremental}
+1. AI has made it **virtually costless** to write grammatically correct prose with no spelling errors.
+
+2. AI has given everyone a **(near) Ph.D.-level** coding assistant and data analyst.
+:::
+
+. . .
+
+::: {.callout-note appearance="simple"}
+## 
+What is the equilibrium response for economics job market candidates?
+:::
+
+## A few thoughts
+
+- The average quality (and expectations) of a JMP will be **higher every year**
+- Expectations for **more complex analyses** will increase
+- Bad writing will likely become a **very bad signal**
+- Boring/generic writing will signal **overreliance on AI**
+- **Interpersonal skills** will become more critical
+
+. . .
+
+::: {.callout-important}
+## Today's focus
+Building an AI-augmented research infrastructure
+:::
+
+## Finding the Balance {.smaller}
+
+:::: {.columns}
+
+::: {.column width="33%"}
+### 1. Learn the fundamentals
+
+- You can't evaluate code you don't understand
+- AI will confidently give you wrong answers—you need to catch them
+- *Think of AI as a fast RA who occasionally hallucinates*
+:::
+
+::: {.column width="33%"}
+### 2. But don't fall behind
+
+- Your peers *are* using these tools
+- The productivity gap compounds quickly
+- *"I prefer the old way" is not a competitive strategy*
+:::
+
+::: {.column width="33%"}
+### 3. The old system was imperfect
+
+- Research errors happened before AI—and were caught late or not at all
+- Better workflows + AI review can catch errors earlier
+:::
+
+::::
+
+. . .
+
+::: {.callout-tip appearance="minimal"}
+The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
+:::
+
+## The old system wasn't a gold standard {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Case 1: Reinhart & Rogoff (2010)
+
+**The error:** An Excel formula didn't include 5 rows of data (Australia, Austria, Belgium, Canada, Denmark)
+
+**The impact:** Paper claimed high debt causes -0.1% growth. Corrected: +2.2% growth. Used to justify global austerity policies.
+
+**Found by:** Thomas Herndon, a grad student, 3 years later
+:::
+
+::: {.column width="50%"}
+### Case 2: Deschênes & Greenstone (2007 AER)
+
+**The error:** Coding errors and missing/incorrect weather data in climate-agriculture analysis
+
+**The impact:** Paper claimed climate change would *increase* ag profits. Corrected results showed the opposite.
+
+**Found by:** Fisher et al., 5 years later via replication
+:::
+
+::::
+
+---
+
+## {background-color="#BB0000"}
+
+::: {.center-slide}
+[Part II]{.subtitle-text}
+
+[Building Your Stack]{.title-text}
+:::
+
+## 1. Use a cloud platform + clear folder structure
+
+:::: {.columns}
+
+::: {.column width="55%"}
+- Work from **OneDrive, Dropbox, or Google Drive**—not your local machine alone
+- Consistent folder structure makes AI tools more effective (they understand your project)
+- Enables collaboration and backup simultaneously
+:::
+
+::: {.column width="45%"}
+```
+project-folder/
+├── data/
+│   ├── raw/
+│   └── clean/
+├── code/
+│   ├── 01-clean.R
+│   ├── 02-analysis.R
+│   └── 03-figures.R
+├── output/
+├── paper/
+└── README.md
+```
+:::
+
+::::
+
+## 2. Use Git/GitHub for version control
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Why Git?
+
+- Track every change to your code
+- Revert to any previous version
+- See exactly what changed and when
+- Collaborate without overwriting
+:::
+
+::: {.column width="50%"}
+### Why GitHub?
+
+- Cloud backup of your code history
+- Share and collaborate easily
+- AI tools integrate directly with repos
+- Replication packages ready to share
+:::
+
+::::
+
+. . .
+
+```bash
+git diff analysis.R
+```
+```diff
+- model <- lm(y ~ x1 + x2, data = df)
++ model <- lm(y ~ x1 + x2 + x1:x2, data = df)  # added interaction
+```
+
+::: {.center-text}
+No more `analysis_v3_final_FINAL2.R` — Git tracks it all.
+:::
+
+## 3. Use AI coding tools: Claude Code vs. Cursor {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Claude Code
+
+**What:** Terminal-based, agentic coding assistant
+
+**Best for:**
+
+- R and data analysis workflows
+- File operations & project setup
+- Autonomous multi-step tasks
+- Git integration
+
+*Runs from command line, can execute code and modify files directly.*
+:::
+
+::: {.column width="50%"}
+### Cursor
+
+**What:** AI-powered code editor (VS Code fork)
+
+**Best for:**
+
+- Iterative code editing
+- Larger software projects
+- Inline suggestions while typing
+- Tab completion on steroids
+
+*Full IDE experience with AI built in.*
+:::
+
+::::
+
+. . .
+
+::: {.callout-note appearance="minimal"}
+**My workflow:** Claude Code for R/data work and project scaffolding; Cursor for larger codebases. Try both!
+:::
+
+## 4. Write papers in Overleaf + GitHub
+
+:::: {.columns}
+
+::: {.column width="60%"}
+- **Overleaf** = collaborative LaTeX editing in the browser
+- **GitHub sync** = version control for your paper
+- AI tools can help draft, edit, and format LaTeX
+- Figures from code → paper in one pipeline
+:::
+
+::: {.column width="40%"}
+```{mermaid}
+%%| fig-width: 4
+flowchart TD
+    A[R / Python Code] --> B[Figures & Tables]
+    B --> C[GitHub Repo]
+    C --> D[Overleaf Paper]
+    
+    style A fill:#4EC9B0,color:#fff
+    style B fill:#9CDCFE,color:#1d1d1d
+    style C fill:#BB0000,color:#fff
+    style D fill:#47A141,color:#fff
+```
+:::
+
+::::
+
+::: {.center-text}
+*One integrated system: Code changes automatically flow through to your paper.*
+:::
+
+## ⚠️ Cautions & Pitfalls
+
+::: {.incremental}
+1. **AI can hallucinate packages and functions**
+   - It will confidently suggest code using libraries that don't exist. Always run and verify.
+
+2. **Don't let AI do your economic thinking**
+   - It's a tool, not a co-author. Identification, intuition, and interpretation are still yours.
+
+3. **Always test AI-generated code**
+   - Run it. Check edge cases. Verify results make sense. "It compiles" ≠ "It's correct."
+
+4. **Be thoughtful about sensitive data**
+   - Know what data you're sending to AI services. Check your IRB and data use agreements.
+:::
+
+## More Resources
+
+| Resource | Description |
+|----------|-------------|
+| [Kevin Bryan's "Tech Stack"](https://kevinbryanecon.com/techstack.html) | Comprehensive guide to modern research tools for economists |
+| [Fernández-Villaverde's Git Tutorial](https://www.sas.upenn.edu/~jesusfv/) | Detailed Git tutorial for academic research |
+| [Claude Code Docs](https://docs.anthropic.com) | Official documentation for Claude's coding assistant |
+| [Cursor](https://cursor.com) | AI-first code editor built on VS Code |
+
+---
+
+## {background-color="#BB0000"}
+
+::: {.center-slide}
+[Up Next]{.subtitle-text}
+
+[Live Demo]{.title-text}
+
+Seeing Claude Code in action with real data analysis
+:::
+
+## Demo: Claude Code in action {.smaller}
+
+Let's use Claude Code to:
+
+1. Load and explore a dataset
+2. Create a visualization
+3. Commit changes to Git
+
+. . .
+
+```{r}
+#| eval: false
+#| code-line-numbers: "|1-2|4-5|7-10"
+
+# Load packages
+library(tidyverse)
+
+# Read in some data
+df <- read_csv("data/raw/example_data.csv")
+
+# Quick summary
+df |> 
+  group_by(year) |> 
+  summarize(mean_value = mean(value, na.rm = TRUE))
+```
+
+. . .
+
+::: {.callout-tip}
+## Try it yourself
+Ask Claude Code: *"Read the CSV in data/raw, summarize it by year, and create a line plot"*
+:::
+
+## Demo: A simple visualization
+
+```{r}
+#| eval: false
+#| fig-width: 10
+#| fig-height: 5
+
+ggplot(df, aes(x = year, y = value, color = group)) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 3) +
+  labs(
+    title = "Trends Over Time",
+    x = "Year",
+    y = "Value",
+    color = "Group"
+  ) +
+  theme_minimal(base_size = 14) +
+  scale_color_brewer(palette = "Set1")
+```
+
+. . .
+
+*This code was generated by Claude Code and reviewed by me.*
+
+## Questions?
+
+::: {.center-slide}
+**Gabe Sampson**
+
+C. William Swank Chair in Rural-Urban Policy
+
+Department of Agricultural, Environmental, and Development Economics
+
+The Ohio State University
+:::
