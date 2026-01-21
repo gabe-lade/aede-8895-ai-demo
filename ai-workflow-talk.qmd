@@ -130,9 +130,13 @@ What is the equilibrium response for economics job market candidates?
 ## A few thoughts on the job market
 
 - The average quality (and expectations) of a JMP will be **higher every year**
+
 - Expectations for **more complex analyses** will increase
+
 - Bad writing will likely become a **very bad signal**
+
 - Boring/generic writing will signal **overreliance on AI**
+
 - **Interpersonal skills** will become more critical
 
 
@@ -140,7 +144,11 @@ What is the equilibrium response for economics job market candidates?
 
 **1. Learn the fundamentals** — You can't evaluate code you don't understand. AI will confidently give you wrong answers—you need to catch them. Think of AI as a fast RA who occasionally hallucinates.
 
+<br>
+
 **2. But don't fall behind** — Your peers *are* using these tools. The productivity gap compounds quickly. "I prefer the old way" is not a competitive strategy.
+
+<br>
 
 **3. The old system was imperfect** — Research errors happened before AI—and were caught late or not at all. Better workflows + AI review can catch errors earlier.
 
@@ -151,7 +159,7 @@ What is the equilibrium response for economics job market candidates?
 
 ::: {.larger-text}
 
-The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, faster, and more replicable**.
+The goal isn't "AI vs. no AI"—it's building systems that make research **more robust, better, and more replicable**.
 :::
 
 
